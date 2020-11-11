@@ -10,13 +10,6 @@ public class Control {
         return listOfNodes.add(node);
     }
 
-//    public boolean removeHead(){
-//        if (listOfNodes.size() == 0)
-//            return false;
-//        listOfNodes.remove(0);
-//        return true;
-//    }
-
     public void addNeighbors(Node node) throws CloneNotSupportedException {
         Flood.colors currentColor = node.getFlood().getBoard()[0][0];
         for (int i = 0; i < Flood.colors.values().length; i++){
@@ -26,7 +19,6 @@ public class Control {
                 listOfNodes.add(coloredNode);
             }
         }
-        System.out.println("Current depth is " + node.getSteps());
         listOfNodes.remove(0);
     }
 
@@ -43,9 +35,6 @@ public class Control {
                     currentNode = currentNode.getParent();
                 }
                 break;
-            }
-            if ((listOfNodes.size() % 20000) < 5){
-                System.out.println("Current size is " + listOfNodes.size());
             }
             addNeighbors(listOfNodes.get(0));
         }
